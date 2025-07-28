@@ -1,21 +1,36 @@
-import React, {useEffect } from 'react';
+import React, {useEffect, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Parallax } from "react-parallax";
 import Navbar from '../layout/Navbar';
 import Preloader from '../layout/preloader';
-import Pricelist from '../section-pages/pricelist-1';
-import Section1 from '../section-pages/section-1';
+import ServicesPricingTable from '../section-pages/ServicesPricingTable'; // Will create/modify this
+import Section1 from '../section-pages/section-1'; // Need to examine this component
 import Footer from '../section-pages/footer';
 import ScrollToTopBtn from '../layout/ScrollToTop';
 import { createGlobalStyle } from 'styled-components';
+import { LanguageContext } from "../LanguageContext"; // Import LanguageContext
 
-const image2 ="../../img/background/subheader-game.webp";
+const image2 ="../../img/background/subheader-game.webp"; // Keep background or change?
 
 const GlobalStyles = createGlobalStyle`
 
 `;
 
-export default function Home() {
+const pageContent = {
+  en: {
+    title: "Our Services",
+    subtitle: "What we offer",
+  },
+  es: {
+    title: "Nuestros Servicios",
+    subtitle: "Lo que ofrecemos",
+  },
+};
+
+export default function Pricing() { // Renamed from Home to reflect content
+  const { language } = useContext(LanguageContext); // Use LanguageContext
+  const content = pageContent[language] || pageContent.en; // Default to English
+
   useEffect(() => {
       if (typeof window !== 'undefined') {
           const loader = document.getElementById('mainpreloader');
@@ -26,12 +41,13 @@ export default function Home() {
           }, 600)
       }
     }, []);
+
   return (
     <>
     {/* HEAD */}
     <Helmet>
       <link rel="icon" href="./img/icon.png" />
-      <title>Playhost - Game Hosting Website Template</title>
+      <title>{content.title} - Repuestos LATAM</title>
     </Helmet>
 
     <GlobalStyles/>
@@ -52,23 +68,11 @@ export default function Home() {
       <section className="no-bg">
         <div className="container z-1000">
               <div className="row gx-5 align-items-center">
-                  <div className="col-lg-2 d-lg-block d-none">
-                      <img src="./img/covers/1.webp" className="img-fluid" alt=""/>
-                  </div>
-                  <div className="col-lg-6">
-                      <div className="subtitle wow fadeInUp mb-3">Server hosting</div>
-                      <h2 className="mb-0">Thunder and City</h2>
-                      <div className="de-rating-ext wow fadeInUp" data-wow-delay=".4s">
-                          <span className="d-stars">
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star"></i>
-                              <i className="fa fa-star-half"></i>
-                          </span>
-                          <span className="d-val">4.75</span>
-                          based on <strong>4086</strong> reviews.
-                      </div>
+                  {/* Removed game-specific image */}
+                  <div className="col-lg-8 offset-lg-2 text-center"> {/* Centered text */}
+                      <div className="subtitle wow fadeInUp mb-3">{content.subtitle}</div>
+                      <h2 className="mb-0">{content.title}</h2>
+                      {/* Removed rating */}
                   </div>      
               </div>
           </div>
@@ -77,13 +81,11 @@ export default function Home() {
 
       {/* section */}
       <section className="no-top">
-        <Pricelist/>
+        <ServicesPricingTable language={language} /> {/* Pass language prop */}
       </section>
 
       {/* section */}
-      <section className="no-top">
-        <Section1/>
-      </section>
+      {/* <Section1/> */}{/* Will decide whether to keep or remove after examining */}
 
       {/* footer */}
       <Footer/>
@@ -92,5 +94,5 @@ export default function Home() {
     </div>
     <ScrollToTopBtn />
     </>
-  )
+  );
 }

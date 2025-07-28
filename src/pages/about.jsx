@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Parallax } from "react-parallax";
 import { Link } from 'react-router-dom';
 import Navbar from '../layout/Navbar';
 import Preloader from '../layout/preloader';
-import Reviews from '../section-pages/CustomerReviews';
+import CustomerTestimonials from '../section-pages/CustomerTestimonials'; // Assuming this component displays reviews
 import Footer from '../section-pages/footer';
 import ScrollToTopBtn from '../layout/ScrollToTop';
 import { createGlobalStyle } from 'styled-components';
+import { LanguageContext } from "../LanguageContext"; // Import LanguageContext
 
 const image1 ="./img/background/subheader-about.webp";
 
@@ -15,7 +16,67 @@ const GlobalStyles = createGlobalStyle`
 
 `;
 
-export default function Home() {
+const pageContent = {
+  en: {
+    subtitle: "About us",
+    title: "Our Story",
+    introSubtitle: "We are Repuestos LATAM",
+    introTitle: "The Beginning",
+    introText: "Repuestos LATAM was founded with the mission to provide reliable and accessible car parts to customers across Latin America. Our journey started by identifying the need for a streamlined distribution network and a trusted source for quality parts...", // Replace with actual story
+    yearsExperience: `Years
+Experience
+Distribution`, // Updated label and fixed syntax
+    visionTitle: "Our Vision",
+    visionText: "Our vision is to become the leading distributor of car parts in Latin America, recognized for our efficiency, reliability, and commitment to customer satisfaction...", // Replace with actual vision
+    missionTitle: "Our Mission",
+    missionText: "Our mission is to simplify the process of finding and acquiring car parts for our customers, offering a wide selection, competitive pricing, and exceptional service...", // Replace with actual mission
+    teamSubtitle: "Our solid team",
+    teamTitle: "Behind the Scene",
+    // Team member names and roles would ideally be in a separate data structure or within the Reviews component if they are dynamic
+    stats: {
+      happyCustomers: `Happy
+Customers`, // Updated label and fixed syntax
+      partsShipped: `Parts
+Shipped`, // Updated label and fixed syntax
+      awardsWinning: `Awards
+Winning`, // Keep or change as needed and fixed syntax
+      yearsExperience: `Years
+Experience`, // Keep or change as needed and fixed syntax
+    }
+  },
+  es: {
+    subtitle: "Sobre nosotros",
+    title: "Nuestra Historia",
+    introSubtitle: "Somos Repuestos LATAM",
+    introTitle: "El Comienzo",
+    introText: "Repuestos LATAM fue fundada con la misión de proporcionar piezas de automóviles confiables y accesibles a clientes en toda América Latina. Nuestro viaje comenzó identificando la necesidad de una red de distribución optimizada y una fuente confiable de piezas de calidad...", // Replace with actual story
+    yearsExperience: `Años
+Experiencia
+Distribución`, // Updated label and fixed syntax
+    visionTitle: "Nuestra Visión",
+    visionText: "Nuestra visión es convertirnos en el distribuidor líder de piezas de automóviles en América Latina, reconocidos por nuestra eficiencia, confiabilidad y compromiso con la satisfacción del cliente...", // Replace with actual vision
+    missionTitle: "Nuestra Misión",
+    missionText: "Nuestra misión es simplificar el proceso de encontrar y adquirir piezas de automóviles para nuestros clientes, ofreciendo una amplia selección, precios competitivos y un servicio excepcional...", // Replace with actual mission
+    teamSubtitle: "Nuestro sólido equipo",
+    teamTitle: "Detrás de Escena",
+     // Team member names and roles would ideally be in a separate data structure or within the Reviews component if they are dynamic
+     stats: {
+      happyCustomers: `Clientes
+Satisfechos`, // Updated label and fixed syntax
+      partsShipped: `Piezas
+Enviadas`, // Updated label and fixed syntax
+      awardsWinning: `Premios
+Ganados`, // Keep or change as needed and fixed syntax
+      yearsExperience: `Años
+Experiencia`, // Keep or change as needed and fixed syntax
+    }
+  },
+};
+
+export default function About() {
+  const { language } = useContext(LanguageContext); // Use LanguageContext
+  const content = pageContent[language] || pageContent.en; // Default to English
+
   useEffect(() => {
       if (typeof window !== 'undefined') {
           const loader = document.getElementById('mainpreloader');
@@ -26,12 +87,13 @@ export default function Home() {
           }, 600)
       }
     }, []);
+
   return (
     <>
     {/* HEAD */}
     <Helmet>
       <link rel="icon" href="./img/icon.png" />
-      <title>Playhost - Game Hosting Website Template</title>
+      <title>{content.title} - Repuestos LATAM</title>
     </Helmet>
 
     <GlobalStyles/>
@@ -53,10 +115,10 @@ export default function Home() {
           <div className="container z-9">
               <div className="row">
                   <div className="col-lg-12">
-                      <div className="subtitle  mb-3">About us</div>
+                      <div className="subtitle  mb-3">{content.subtitle}</div>
                   </div>
                   <div className="col-lg-6">
-                      <h2 className=" mb20" data-wow-delay=".2s">This is our story</h2>
+                      <h2 className=" mb20" data-wow-delay=".2s">{content.title}</h2>
                   </div>                 
               </div>
           </div>
@@ -75,17 +137,12 @@ export default function Home() {
                       </div>
                   </div>
                   <div className="col-lg-6">
-                      <div className="subtitle mb20">We are Playhost</div>
-                      <h2 >The beginning</h2>
-                      <p >Lorem ipsum ea ut magna nisi amet reprehenderit eu 
-                      adipisicing nisi incididunt est sint fugiat deserunt tempor ea culpa nostrud 
-                      commodo deserunt et do ullamco non tempor veniam id culpa mollit veniam ut
-                      non adipisicing ad commodo laborum esse do sunt in cillum irure incididunt 
-                      officia quis ut.
-                      </p>
+                      <div className="subtitle mb20">{content.introSubtitle}</div>
+                      <h2 >{content.introTitle}</h2>
+                      <p >{content.introText}</p>
                       <div className="year-card ">
-                          <h1><span className="id-color">25</span></h1>
-                          <div className="atr-desc">Years<br/>Experience<br/>Hosting</div>
+                          <h1><span className="id-color">{/* Number needs to be updated manually or fetched */}25</span></h1>
+                          <div className="atr-desc">{content.yearsExperience}</div>
                       </div>
                   </div>
               </div>
@@ -99,12 +156,12 @@ export default function Home() {
                 <div className="col-lg-8 offset-lg-2">
                     <div className="row gx-5">
                         <div className="col-lg-6 col-md-6">
-                            <h4>Our Vision</h4>
-                            <p>Adipisicing pariatur dolor pariatur officia aliqua ex irure aliqua ut exercitation nulla exercitation esse duis do commodo exercitation sed exercitation aliquip fugiat. Dolor ad amet sed aliqua ad nisi anim fugiat dolor labore ex non amet id mollit amet id magna elit fugiat voluptate aliquip in est quis aliquip aliqua eu. Lorem ipsum irure sed nisi id aute exercitation fugiat.</p>
+                            <h4>{content.visionTitle}</h4>
+                            <p>{content.visionText}</p>
                         </div>
                         <div className="col-lg-6 col-md-6">
-                            <h4>Our Mission</h4>
-                            <p>Adipisicing pariatur dolor pariatur officia aliqua ex irure aliqua ut exercitation nulla exercitation esse duis do commodo exercitation sed exercitation aliquip fugiat. Ut excepteur deserunt labore exercitation commodo exercitation minim aliquip in aliqua deserunt nulla aliquip officia ut eiusmod irure ullamco sunt sunt velit dolor ex. Enim eu proident in non officia culpa.</p>
+                            <h4>{content.missionTitle}</h4>
+                            <p>{content.missionText}</p>
                         </div>
                     </div>
                 </div>
@@ -117,10 +174,11 @@ export default function Home() {
         <div className="container">
           <div className="row">
               <div className="col-lg-3">
-                  <div className="subtitle mb20">Our solid team</div>
-                  <h2 className="mb20 wow fadeInUp">Behind the scene</h2>
+                  <div className="subtitle mb20">{content.teamSubtitle}</div>
+                  <h2 className="mb20 wow fadeInUp">{content.teamTitle}</h2>
               </div>
 
+              {/* Team members - names and roles should be updated and localized */}
               <div className="col-lg-3 col-md-6 col-sm-6 mb-sm-30">
                   <div className="f-profile text-center">
                       <div className="fp-wrap f-invert">
@@ -139,8 +197,8 @@ export default function Home() {
                           <img src="./img/team/1.webp" className="fp-image img-fluid" alt=""/>
                       </div>
 
-                      <h4>Robyn Peel</h4>
-                      CEO Founder
+                      <h4>{/* Team member name */}Robyn Peel</h4>
+                      {/* Team member role */"CEO Founder"}
                   </div>
               </div>
 
@@ -162,8 +220,8 @@ export default function Home() {
                           <img src="./img/team/2.webp" className="fp-image img-fluid" alt=""/>
                       </div>
 
-                      <h4>Anna Shepard</h4>
-                      Director
+                      <h4>{/* Team member name */}Anna Shepard</h4>
+                      {/* Team member role */"Director"}
                   </div>
               </div>
 
@@ -185,8 +243,8 @@ export default function Home() {
                           <img src="./img/team/3.webp" className="fp-image img-fluid" alt=""/>
                       </div>
 
-                      <h4>Fynley Wilkinson</h4>
-                      Developer
+                      <h4>{/* Team member name */}Fynley Wilkinson</h4>
+                      {/* Team member role */"Developer"}
                   </div>
               </div>
 
@@ -196,7 +254,7 @@ export default function Home() {
 
       {/* section */}
       <section className="no-top">
-       <Reviews/>
+       <CustomerTestimonials language={language} /> {/* Pass language prop and corrected component name */}
       </section>
 
       {/* section */}
@@ -205,26 +263,26 @@ export default function Home() {
             <div className="row text-center">
                 <div className="col-lg-3 col-sm-6 mb-sm-30 position-relative">
                     <div className="de_count text-light wow fadeInUp">
-                        <h3 className="timer id-color" >15425</h3>
-                        <h4 className="text-uppercase">Happy<br/>Gamers</h4>
+                        <h3 className="timer id-color" >{/* Number needs to be updated manually or fetched */}15425</h3>
+                        <h4 className="text-uppercase">{content.stats.happyCustomers}</h4>
                     </div>
                 </div>
                 <div className="col-lg-3 col-sm-6 mb-sm-30 position-relative">
                     <div className="de_count text-light wow fadeInUp">
-                        <h3 className="timer text-line">8745</h3>
-                        <h4 className="text-uppercase">Servers<br/>Ordered</h4>
+                        <h3 className="timer text-line">{/* Number needs to be updated manually or fetched */}8745</h3>
+                        <h4 className="text-uppercase">{content.stats.partsShipped}</h4>
                     </div>
                 </div>
                 <div className="col-lg-3 col-sm-6 mb-sm-30 position-relative">
                     <div className="de_count text-light wow fadeInUp">
-                        <h3 className="timer id-color">235</h3>
-                        <h4 className="text-uppercase">Awards<br/>Winning</h4>
+                        <h3 className="timer id-color">{/* Number needs to be updated manually or fetched */}235</h3>
+                        <h4 className="text-uppercase">{content.stats.awardsWinning}</h4>
                     </div>
                 </div>
                 <div className="col-lg-3 col-sm-6 mb-sm-30 position-relative">
                     <div className="de_count text-light wow fadeInUp">
-                        <h3 className="timer text-line">15</h3>
-                        <h4 className="text-uppercase">Years<br/>Experience</h4>
+                        <h3 className="timer text-line">{/* Number needs to be updated manually or fetched */}15</h3>
+                        <h4 className="text-uppercase">{content.stats.yearsExperience}</h4>
                     </div>
                 </div>
             </div>
@@ -238,5 +296,5 @@ export default function Home() {
     </div>
     <ScrollToTopBtn />
     </>
-  )
+  );
 }

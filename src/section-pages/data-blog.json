@@ -3,56 +3,72 @@
     "id": 1,
     "image": "./img/news/1.webp",
     "date": "25.10.2023",
-    "title": "How to Set Up Your Own Game Server",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Tips for Vehicle Maintenance",
+    "excerpt_en": "Learn how to keep your car in top condition with these essential maintenance tips...",
+    "title_es": "Consejos para el Mantenimiento de Vehículos",
+    "excerpt_es": "Aprenda cómo mantener su automóvil en las mejores condiciones con estos consejos esenciales de mantenimiento..."
   },
   {
     "id": 2,
     "image": "./img/news/2.webp",
     "date": "25.10.2023",
-    "title": "Rise in Demand for Private Game Servers",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Successful Part Delivery Stories",
+    "excerpt_en": "Read about how we successfully delivered crucial parts to our customers across Latin America...",
+    "title_es": "Historias de Entregas Exitosas de Piezas",
+    "excerpt_es": "Lea sobre cómo entregamos con éxito piezas cruciales a nuestros clientes en toda América Latina..."
   },
   {
     "id": 3,
     "image": "./img/news/3.webp",
     "date": "25.10.2023",
-    "title": "Top Hosting Providers for Game Servers",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Understanding Car Part Numbers",
+    "excerpt_en": "A guide to understanding car part numbers and how they help in finding the right replacement...",
+    "title_es": "Comprendiendo los Números de Pieza de Automóviles",
+    "excerpt_es": "Una guía para comprender los números de pieza de automóviles y cómo ayudan a encontrar el reemplazo correcto..."
   },
   {
     "id": 4,
     "image": "./img/news/4.webp",
     "date": "25.10.2023",
-    "title": "E-Sports and Competitive Gaming",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "The Importance of Using Genuine Parts",
+    "excerpt_en": "Discover why using genuine car parts is crucial for the performance and longevity of your vehicle...",
+    "title_es": "La Importancia de Usar Piezas Originales",
+    "excerpt_es": "Descubra por qué usar piezas de automóvil originales es crucial para el rendimiento y la longevidad de su vehículo..."
   },
   {
     "id": 5,
     "image": "./img/news/5.webp",
     "date": "25.10.2023",
-    "title": "How to Protect Your Online World",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Navigating Our Part Request Form",
+    "excerpt_en": "A step-by-step guide on how to use our new 'Make a Request' form to find the parts you need...",
+    "title_es": "Navegando Nuestro Formulario de Solicitud de Piezas",
+    "excerpt_es": "Una guía paso a paso sobre cómo utilizar nuestro nuevo formulario 'Realizar una Solicitud' para encontrar las piezas que necesita..."
   },
   {
     "id": 6,
     "image": "./img/news/6.webp",
     "date": "25.10.2023",
-    "title": "5 Ways to Maintain a Good Posture",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Expansion of Our Distribution Network",
+    "excerpt_en": "Exciting news! We are expanding our distribution network to new regions in Latin America...",
+    "title_es": "Expansión de Nuestra Red de Distribución",
+    "excerpt_es": "¡Noticias emocionantes! Estamos expandiendo nuestra red de distribución a nuevas regiones en América Latina..."
   },
   {
     "id": 7,
     "image": "./img/news/3.webp",
     "date": "25.10.2023",
-    "title": "How to Set Up Your Own Game Server",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Tips for Vehicle Maintenance",
+    "excerpt_en": "Learn how to keep your car in top condition with these essential maintenance tips...",
+    "title_es": "Consejos para el Mantenimiento de Vehículos",
+    "excerpt_es": "Aprenda cómo mantener su automóvil en las mejores condiciones con estos consejos esenciales de mantenimiento..."
   },
   {
     "id": 8,
     "image": "./img/news/1.webp",
     "date": "25.10.2023",
-    "title": "Rise in Demand for Private Game Servers",
-    "excerpt": "Dolore officia sint incididunt non excepteur ea mollit commodo ut enim reprehenderit cupidatat labore ad laborum consectetur consequat..."
+    "title_en": "Successful Part Delivery Stories",
+    "excerpt_en": "Read about how we successfully delivered crucial parts to our customers across Latin America...",
+    "title_es": "Historias de Entregas Exitosas de Piezas",
+    "excerpt_es": "Lea sobre cómo entregamos con éxito piezas cruciales a nuestros clientes en toda América Latina..."
   }
 ]
