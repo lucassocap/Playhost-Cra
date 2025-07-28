@@ -144,44 +144,44 @@ export default function MakeRequest() {
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 offset-lg-2">
+            <div className="col-lg-10 offset-lg-1">
               <p className="lead text-center">{content.introText}</p>
               <div className="contact_form_wrapper">
                 <form id="request_form" className="form-border" onSubmit={handleSubmit}>
                   <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-lg-6 mb10">
                       <div className="field-set">
-                        <label>{content.vehicleBrandLabel}</label>
+                        <span className="d-label">{content.vehicleBrandLabel}</span>
                         <input type="text" name="vehicleBrand" id="vehicleBrand" className="form-control" value={formData.vehicleBrand} onChange={handleChange} required />
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-lg-6 mb10">
                       <div className="field-set">
-                        <label>{content.modelLabel}</label>
+                        <span className="d-label">{content.modelLabel}</span>
                         <input type="text" name="model" id="model" className="form-control" value={formData.model} onChange={handleChange} required />
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-lg-6 mb10">
                       <div className="field-set">
-                        <label>{content.yearLabel}</label>
+                        <span className="d-label">{content.yearLabel}</span>
                         <input type="text" name="year" id="year" className="form-control" value={formData.year} onChange={handleChange} required />
                       </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-lg-6 mb10">
                       <div className="field-set">
-                        <label>{content.partNameLabel}</label>
+                        <span className="d-label">{content.partNameLabel}</span>
                         <input type="text" name="partName" id="partName" className="form-control" value={formData.partName} onChange={handleChange} required />
                       </div>
                     </div>
-                    <div className="col-md-12">
+                    <div className="col-lg-12 mb10">
                       <div className="field-set">
-                        <label>{content.emailLabel}</label>
+                        <span className="d-label">{content.emailLabel}</span>
                         <input type="email" name="email" id="email" className="form-control" value={formData.email} onChange={handleChange} required />
                       </div>
                     </div>
-                    <div className="col-md-12">
+                    <div className="col-lg-12 mb10">
                       <div className="field-set">
-                        <label>{content.messageLabel}</label>
+                        <span className="d-label">{content.messageLabel}</span>
                         <textarea name="message" id="message" className="form-control" value={formData.message} onChange={handleChange}></textarea>
                       </div>
                     </div>
@@ -191,8 +191,9 @@ export default function MakeRequest() {
                           {content.submitButton}
                         </button>
                       </div>
-                       {status === 'success' && <div className='text-success mt-3'>{content.successMessage}</div>}
-                       {status === 'failure' && <div className='text-danger mt-3'>{content.failureMessage}</div>}
+                       {status === 'success' && <div className='text-success mt-3 show'>{content.successMessage}</div>}
+                       {status === 'failure' && <div className='text-danger mt-3 show'>{content.failureMessage}</div>}
+                       {status === 'Sending...' && <div className='text-info mt-3 show'>Sending...</div>}
                     </div>
                   </div>
                 </form>
