@@ -307,8 +307,8 @@ const Navbar = () => {
 
         {/* Language Switcher */}
         <div className="language-switcher">
-          <button className={`btn-line language-button ${language === 'en' ? 'active' : ''}`} onClick={() => changeLanguage('en')}>EN</button>
-          <button className={`btn-line language-button ${language === 'es' ? 'active' : ''}`} onClick={() => changeLanguage('es')}>ES</button>
+          <button className={`language-button ${language === 'en' ? 'active' : ''}`} onClick={() => changeLanguage('en')}>EN</button>
+          <button className={`language-button ${language === 'es' ? 'active' : ''}`} onClick={() => changeLanguage('es')}>ES</button>
         </div>
         {/* Language Switcher */}
 
