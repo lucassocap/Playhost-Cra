@@ -28,7 +28,7 @@ const Sectionloc = () => {
                                 <div className="de-circle-2"></div>
                             </div>
                             <div className="de-spot fadeIn" style={{top:'76%', left:'87%'}}>
-                                <span>Australia</span>
+                                <span>Costa Rica</span>
                                 <div className="de-circle-1"></div>
                                 <div className="de-circle-2"></div>
                             </div>
